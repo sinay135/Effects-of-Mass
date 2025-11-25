@@ -4,11 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 export default function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <p>yes</p>
+      <div className='world' >
+        <div className='verse'>
+          <p>yes</p>
+        </div>
+        <button style={{marginTop: "10px"}}>Yes</button>
+      </div>
     </>
   )
 }
