@@ -6,21 +6,16 @@ export default class QuadNode {
 
     public x: number;
     public y: number;
-    public size: [number, number];
-    public mass: number;
+    public size: number;
+    public mass: number = 0;
+    public COM: [number, number] = [0, 0];
 
-    public particle: Particle | null;
-    public parent: QuadNode;
-    public children: QuadNode[];
+    public particle: Particle | null = null;
+    public children: QuadNode[] | null = null; 
 
-    constructor(_x: number, _y: number, _sizex: number, _sizey: number, _mass: number, _parent: QuadNode) {
+    constructor(_x: number, _y: number, _size: number) {
         this.x = _x;
         this.y = _y;
-        this.size = [_sizex, _sizey];
-        this.mass = _mass;
-
-        this.particle = null;
-        this.parent = _parent;
-        this.children = new Array<QuadNode>(4);
+        this.size = _size;
     }
 }
