@@ -8,10 +8,10 @@ export default function App() {
     <>
       <div className='world' >
         <div className='verse'>
-          <svg>
+          <svg width={500} height={500}>
             <g fill="grey" stroke="" stroke-width="5">
-              <circle cx="40" cy="40" r="25" />
-              <circle cx="60" cy="60" r="25" />
+              <circle cx="500" cy="0" r="10" />
+              <circle cx="0" cy="500" r="10" />
             </g>
           </svg>
         </div>
