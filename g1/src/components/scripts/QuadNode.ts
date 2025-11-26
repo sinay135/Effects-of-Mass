@@ -29,9 +29,14 @@ export default class QuadNode {
         this.children = [zero, one, two, three];
     }
 
-    selectQuad(): QuadNode |null {
+    selectQuad(px: number, py: number): QuadNode |null {
+        if (this.children == null) return null;
 
-        
+        const s: number = this.size/2;
+        if (px < this.x + s && py < this.y + s) return this.children[0];
+        if (px >= this.x + s && py < this.y + s) return this.children[1];
+        if (px < this.x + s && py >= this.y + s) return this.children[2];
+        if (px >= this.x + s && py >= this.y + s) return this.children[3];
 
         return null;
     }
@@ -39,13 +44,14 @@ export default class QuadNode {
     insert(particle: Particle): void {
         if(this.particle == null && this.children == null) {    // if no particle
             this.particle = particle;
-        } else if (this.particle != null) {                     // if particle exists
+        } else if (this.particle != null) {                     // if particle exists insert both particles
             this.quadify();
-            // insert new particles
+            const prevParticle: Particle = this.particle;
             this.particle = null;
-        } else {                                                // if children exist
-            
+            this.selectQuad(prevParticle.x, prevParticle.y)?.insert(prevParticle);
+            this.selectQuad(particle.x, particle.y)?.insert(particle);
+        } else {                                                // if children exist insert particle into child
+            this.selectQuad(particle.x, particle.y)?.insert(particle);
         }
     }
-
 }
