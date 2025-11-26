@@ -1,7 +1,5 @@
 import Particle from "./Particle";
 
-
-
 export default class QuadNode {
 
     public x: number;
@@ -36,9 +34,7 @@ export default class QuadNode {
         if (px < this.x + s && py < this.y + s) return this.children[0];
         if (px >= this.x + s && py < this.y + s) return this.children[1];
         if (px < this.x + s && py >= this.y + s) return this.children[2];
-        if (px >= this.x + s && py >= this.y + s) return this.children[3];
-
-        return null;
+        else return this.children[3];
     }
 
     insert(particle: Particle): void {

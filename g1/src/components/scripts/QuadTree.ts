@@ -6,7 +6,6 @@ export default class QuadTree {
 
     public root: QuadNode;
     public size: number;
-    public particles: Particle[] |null = null;
 
     constructor(size: number) {
         this.root = new QuadNode(0, 0, size);
@@ -14,9 +13,13 @@ export default class QuadTree {
     }
 
     createTree(particles: Particle[]): void {
-        if (particles.length > 1) {
-            
+        for (let p of particles) {
+            this.root.insert(p);
         }
+    }
+
+    reset():void {
+        this.root = new QuadNode(0, 0, this.size);
     }
 
 }
