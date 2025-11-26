@@ -8,10 +8,10 @@ export default class Particle {
     vely = 0;
     mass: number;
 
-    constructor(_x: number, _y: number, _mass: number) {
-        this.x = _x;
-        this.y = _y;
-        this.mass = _mass;
+    constructor(x: number, y: number, mass: number) {
+        this.x = x;
+        this.y = y;
+        this.mass = mass;
     }
     
     update(): void {

@@ -8,7 +8,12 @@ export default function App() {
     <>
       <div className='world' >
         <div className='verse'>
-          <p>yes</p>
+          <svg>
+            <g fill="grey" stroke="" stroke-width="5">
+              <circle cx="40" cy="40" r="25" />
+              <circle cx="60" cy="60" r="25" />
+            </g>
+          </svg>
         </div>
         <button style={{marginTop: "10px"}}>Yes</button>
       </div>
