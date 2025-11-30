@@ -16,12 +16,12 @@ export default function App() {
       <div className='world' >
         <div className='verse'>
           <svg width={mapSize} height={mapSize}>
-            <g fill="grey" stroke="" stroke-width="5">
+            <g fill="rgba(100, 172, 255, 1)" stroke="" stroke-width="5">
               {particles.map((p, i) => (
                 <circle key={i} cx={p.x} cy={p.y} r="5" />
               ))}
             </g>
-            <g fill="transparent" stroke="red" stroke-width="2">
+            <g fill="transparent" stroke="rgba(0, 0, 0, 1)" stroke-width="0.5">
               {quads.map((q, i) => (
                 <rect key={i} x={q.x} y={q.y} width={q.size} height={q.size} />
               ))}

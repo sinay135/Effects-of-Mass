@@ -11,7 +11,7 @@ function randInt(min: number, max: number): number {
 export default function Summon(props: {size: number, setParticles: any, setQuads: any, qt: QuadTree}) {    
     
     function summonNew() {
-        const quantity: number = 50;
+        const quantity: number = 15;
         const mass: number = 10;
         let particles: Particle[] = [];
 
