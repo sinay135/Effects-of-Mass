@@ -23,7 +23,7 @@ export default function App() {
             </g>
             <g fill="transparent" stroke="red" stroke-width="2">
               {quads.map((q, i) => (
-                <rect cx={q.x} cy={q.y} width={q.size} height={q.size} />
+                <rect key={i} x={q.x} y={q.y} width={q.size} height={q.size} />
               ))}
             </g>
           </svg>

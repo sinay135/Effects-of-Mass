@@ -38,13 +38,13 @@ export default class QuadNode {
     }
 
     insert(particle: Particle, quadList: QuadNode[]): void {
+        if (!quadList.includes(this)) {
+            quadList.push(this);
+        }
+        
         if(this.particle == null && this.children == null) {    // if no particle
             this.particle = particle;
-            quadList.push(this);
         } else if (this.particle != null) {                     // if particle exists insert both particles
-            const index: number = quadList.indexOf(this);
-            quadList.splice(index, 1);
-
             this.quadify();
             const prevParticle: Particle = this.particle;
             this.particle = null;
