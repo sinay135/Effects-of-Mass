@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Particle from "./scripts/Particle"
 import type QuadTree from "./scripts/QuadTree";
 
@@ -7,8 +6,10 @@ function randInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default function Summon(props: {size: number, qt: QuadTree}) {    
-    useEffect(() => {
+
+export default function Summon(props: {size: number, setParticles: any, qt: QuadTree}) {    
+    
+    function summonNew() {
         const quantity: number = 10;
         const mass: number = 10;
         let particles: Particle[] = [];
@@ -19,11 +20,13 @@ export default function Summon(props: {size: number, qt: QuadTree}) {
             particles.push(new Particle(x, y, mass));
         }
 
+        props.qt.reset();
         props.qt.createTree(particles);
-    })
-    
+        props.setParticles(particles)
+    }
+
 
     return (
-        <button style={{marginTop: "10px"}}>Yes</button>
+        <button style={{marginTop: "10px"}} onClick={summonNew} >Yes</button>
     )
 }
