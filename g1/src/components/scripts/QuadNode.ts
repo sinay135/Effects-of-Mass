@@ -37,17 +37,21 @@ export default class QuadNode {
         else return this.children[3];
     }
 
-    insert(particle: Particle): void {
+    insert(particle: Particle, quadList: QuadNode[]): void {
         if(this.particle == null && this.children == null) {    // if no particle
             this.particle = particle;
+            quadList.push(this);
         } else if (this.particle != null) {                     // if particle exists insert both particles
+            const index: number = quadList.indexOf(this);
+            quadList.splice(index, 1);
+
             this.quadify();
             const prevParticle: Particle = this.particle;
             this.particle = null;
-            this.selectQuad(prevParticle.x, prevParticle.y)?.insert(prevParticle);
-            this.selectQuad(particle.x, particle.y)?.insert(particle);
+            this.selectQuad(prevParticle.x, prevParticle.y)?.insert(prevParticle, quadList);
+            this.selectQuad(particle.x, particle.y)?.insert(particle, quadList);
         } else {                                                // if children exist insert particle into child
-            this.selectQuad(particle.x, particle.y)?.insert(particle);
+            this.selectQuad(particle.x, particle.y)?.insert(particle, quadList);
         }
     }
 }

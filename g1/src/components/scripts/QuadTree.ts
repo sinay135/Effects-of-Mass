@@ -12,10 +12,12 @@ export default class QuadTree {
         this.size = size;
     }
 
-    createTree(particles: Particle[]): void {
+    createTree(particles: Particle[]): QuadNode[] {
+        const quadList: QuadNode[] = [];
         for (let p of particles) {
-            this.root.insert(p);
+            this.root.insert(p, quadList);
         }
+        return quadList;
     }
 
     reset():void {

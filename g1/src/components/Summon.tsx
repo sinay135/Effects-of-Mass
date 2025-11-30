@@ -1,4 +1,5 @@
 import Particle from "./scripts/Particle"
+import type QuadNode from "./scripts/QuadNode";
 import type QuadTree from "./scripts/QuadTree";
 
 
@@ -7,7 +8,7 @@ function randInt(min: number, max: number): number {
 }
 
 
-export default function Summon(props: {size: number, setParticles: any, qt: QuadTree}) {    
+export default function Summon(props: {size: number, setParticles: any, setQuads: any, qt: QuadTree}) {    
     
     function summonNew() {
         const quantity: number = 10;
@@ -21,7 +22,8 @@ export default function Summon(props: {size: number, setParticles: any, qt: Quad
         }
 
         props.qt.reset();
-        props.qt.createTree(particles);
+        const ql: QuadNode[] = props.qt.createTree(particles);
+        props.setQuads(ql);
         props.setParticles(particles)
     }
 
