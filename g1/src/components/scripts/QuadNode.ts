@@ -9,7 +9,7 @@ export default class QuadNode {
     public COMVector: [number, number] = [0, 0];
 
     public particle: Particle |null = null;
-    public children: QuadNode[] |null = null; 
+    public children: [QuadNode, QuadNode, QuadNode, QuadNode] |null = null; 
 
     constructor(x: number, y: number, size: number) {
         this.x = x;

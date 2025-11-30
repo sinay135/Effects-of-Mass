@@ -1,9 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Summon from './components/Summon'
+import type Particle from './components/scripts/Particle';
 
 export default function App() {
+
+  const [particles, setParticles] = useState<Particle[]>([]);
+
   return (
     <>
       <div className='world' >
@@ -15,7 +18,7 @@ export default function App() {
             </g>
           </svg>
         </div>
-        <button style={{marginTop: "10px"}}>Yes</button>
+        <Summon size={500} setParticles={setParticles} />
       </div>
     </>
   )
