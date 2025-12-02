@@ -11,13 +11,19 @@ function randInt(min: number, max: number): number {
 export default function Summon(props: {size: number, setParticles: any, setQuads: any, qt: QuadTree}) {    
     
     function summonNew() {
-        const quantity: number = 15;
+        const quantity: number = 10000;
         const mass: number = 10;
         let particles: Particle[] = [];
+        const existing: Set<string> = new Set<string>();
 
         for (let i = 0; i < quantity; i++) {
-            const x: number = randInt(0, props.size);
-            const y: number = randInt(0, props.size);
+            let x: number = -1;
+            let y: number = -1;
+            while (x == -1 || existing.has(`${x}, ${y}`)) {
+                x = randInt(0, props.size);
+                y = randInt(0, props.size);
+            }
+            existing.add(`${x}, ${y}`);
             particles.push(new Particle(x, y, mass));
         }
 

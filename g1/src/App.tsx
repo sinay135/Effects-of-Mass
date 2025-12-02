@@ -18,7 +18,7 @@ export default function App() {
           <svg width={mapSize} height={mapSize}>
             <g fill="rgba(100, 172, 255, 1)" stroke="" stroke-width="5">
               {particles.map((p, i) => (
-                <circle key={i} cx={p.x} cy={p.y} r="5" />
+                <circle key={i} cx={p.x} cy={p.y} r="1" />
               ))}
             </g>
             <g fill="transparent" stroke="rgba(0, 0, 0, 1)" stroke-width="0.5">

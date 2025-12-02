@@ -37,6 +37,11 @@ export default class QuadNode {
         else return this.children[3];
     }
 
+    /**
+     * Recursively insert particle into QuadNode till empty Node is found. 
+     * @param {Particle} particle Particle to insert into QuadNode
+     * @param {QuadNode[]} quadList List of QuadNodes to visualise
+    */
     insert(particle: Particle, quadList: QuadNode[]): void {
         if (!quadList.includes(this)) {
             quadList.push(this);
